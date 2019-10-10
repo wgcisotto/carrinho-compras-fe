@@ -1,6 +1,6 @@
-## BackEnd  
+## FrontEnd
 
-#### Carrinho de Compras service
+#### Carrinho de Compras 
 - Contem o crud para Item, Usuario 
 - Controle de Carrinho de compras 
 
