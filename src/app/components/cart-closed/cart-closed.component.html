@@ -1,0 +1,14 @@
+<br/>
+<table>
+  <thead>
+  <th>Name</th>
+  <th>Price</th>
+  <th>Quantity</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let i of cart.items">
+  <td>{{i.item.name}}</td>
+  <td>{{i.item.price}}</td>
+  <td>{{i.qtd}}</tr>
+  </tbody>
+  </table>

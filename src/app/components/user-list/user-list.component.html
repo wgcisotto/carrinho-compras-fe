@@ -1,0 +1,37 @@
+<br/>
+<div>
+  <label>User name:
+    <input #userName />
+  </label>
+  <label>Email:
+    <input #userEmail />
+  </label>
+  <button  (click)="add(userName.value, userEmail.value); userName.value=''; userEmail.value=''">
+    <label *ngIf="userSelected==null">add</label>
+    <label *ngIf="userSelected!=null">update</label>
+  </button>
+  <button *ngIf="userSelected!=null" (click)="cancel(); userName.value=''; userEmail.value=''">
+    <label>cancel</label>
+  </button>
+</div>
+
+<br/>
+
+<table>
+  <thead>
+  <th>Name</th>
+  <th>Email</th>
+  <th>Actions</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users">
+  <td>{{user.name}}</td>
+  <td>{{user.email}}</td>
+  <td>
+    <button class="" title="delete User"
+      (click)="delete(user)">x</button>
+    <button class="" title="edit USer"
+    (click)="edit(user); userName.value=user.name; userEmail.value=user.email">Edit</button></td>
+  </tr>
+  </tbody>
+  </table>

@@ -1,0 +1,37 @@
+<br/>
+<div>
+  <label>Item name:
+    <input #itemName />
+  </label>
+  <label>Item price:
+    <input #itemPrice />
+  </label>
+  <button (click)="add(itemName.value, itemPrice.value); itemName.value=''; itemPrice.value=''">
+    <label *ngIf="itemSelected==null">add</label>
+    <label *ngIf="itemSelected!=null">update</label>
+  </button>
+  <button *ngIf="itemSelected!=null" (click)="cancel(); itemName.value=''; itemPrice.value=''">
+    <label>cancel</label>
+  </button>
+</div>
+
+<br/>
+
+<table>
+  <thead>
+  <th>Name</th>
+  <th>Price</th>
+  <th>Actions</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of items">
+  <td>{{item.name}}</td>
+  <td>{{item.price}}</td>
+  <td>
+    <button class="" title="delete item"
+      (click)="delete(item)">x</button>
+    <button class="" title="edit item"
+    (click)="edit(item); itemName.value=item.name; itemPrice.value=item.price">Edit</button></td>
+  </tr>
+  </tbody>
+  </table>
