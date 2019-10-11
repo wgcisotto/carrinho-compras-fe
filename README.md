@@ -4,6 +4,14 @@
 - Contem o crud para Item, Usuario 
 - Controle de Carrinho de compras 
 
+**Getting Started**
+
+Antes de tudo, clone o projeto:
+
+```
+# git clone https://github.com/wgcisotto/carrinho-compras-fe.git
+```
+
 **Start**
 
 Run `npm start` to start de server 
