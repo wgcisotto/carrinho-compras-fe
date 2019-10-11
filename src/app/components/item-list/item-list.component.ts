@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ITENS } from '../../mock-itens';
+import { Component, OnInit } from '@angular/core';;
 import { Item } from '../../models/item';
 import { ItemService } from '../../services/item.service';
 import { ɵINTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic';
@@ -32,6 +31,7 @@ export class ItemListComponent implements OnInit {
     let id: string;
 
     if (!name) { return; }
+
 
     if(this.itemSelected == null){
       this.itemService.addItem({id,  name, price } as Item)
