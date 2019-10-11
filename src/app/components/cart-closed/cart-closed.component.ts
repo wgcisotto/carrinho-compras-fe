@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CartClosedComponent implements OnInit {
 
   cart: Cart;
+  total: number;
   constructor(
     private route: ActivatedRoute, 
     private cartService: CartService)  { }
@@ -18,13 +19,22 @@ export class CartClosedComponent implements OnInit {
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
     this.getCartByUserId(id);
+
   }
 
   getCartByUserId(userId:string){
     this.cartService.getCartByUserId(userId)
-      .subscribe(cart => this.cart = cart);
+      .subscribe(cart => this.cart = cart
+        );
+      console.log(this.cart)
+      console.log('oi')
+      for (let entry of this.cart.items) {
+        console.log(entry);
+        this.total = entry.item.price * entry.qtd
+     }
 
-    console.log(this.cart)
+     alert(this.total);
+    
   }
 
 }

@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
   users: User[];
   userSelected: User = null;
 
-  constructor(private itemService: ItemService, 
+  constructor(private itemService: ItemService,
               private userService: UserService,
               private cartService: CartService,
               private router: Router) { }
@@ -29,7 +29,6 @@ export class CartComponent implements OnInit {
 
 
   getItems(): void {
-    // this.items = ITENS
     this.itemService.getItems()
     .subscribe(items => this.items = items);
   }
@@ -46,6 +45,7 @@ export class CartComponent implements OnInit {
     }
     this.cartService.addItem(this.userSelected.id, item)
       .subscribe();
+      alert("Adicionado");
 
   }
 
@@ -56,8 +56,7 @@ export class CartComponent implements OnInit {
     }
     this.cartService.removeItem(this.userSelected.id, item)
       .subscribe();
-
-    
+      alert("Removido");
   }
 
   close(userId: string): void{
@@ -67,7 +66,7 @@ export class CartComponent implements OnInit {
     }else{
       this.router.navigate(['/cart-closed/'+this.userSelected.id])
     }
-    
+
   }
 
 }
